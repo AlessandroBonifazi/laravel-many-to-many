@@ -60,7 +60,7 @@ class PostController extends Controller
         $newPost->slug = Post::createSlug($newPost->title);
         $newPost->save();
 
-        if(array_key_exists('tags[]', $postData)){
+        if(array_key_exists('tags', $postData)){
             $newPost->tags()->sync($postData['tags']);
         }
         $newPost->save();
